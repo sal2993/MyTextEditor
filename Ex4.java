@@ -70,7 +70,6 @@ public class Ex4 extends Basic
   private static double leftMargin = 5;
   private static double lineHeight = 1.8;
   private static double symWidth = 0.8;
-  private static boolean anyKeyPressed = false;
   private static String[] instructions = {"ctrl-q: save and quit",
         "ctrl-f: move cursor to beginning of line ",
         "ctrl-l: move cursor to end of line ",
@@ -91,7 +90,7 @@ public class Ex4 extends Basic
     // make the camera use the desired font
     cameras.get(0).setFont( new Font( Font.MONOSPACED, Font.PLAIN, 18 ) );
     double y = 48;
-    if (!anyKeyPressed || doc.current() == 0)
+    if ( doc.current() == 0 )
     {
         for (int i = 0; i < instructions.length; i++)
         {
@@ -150,7 +149,6 @@ public class Ex4 extends Basic
   {
     char key = e.getKeyChar();
 
-    anyKeyPressed = true;
 System.out.println("key typed coerced to int: " + ((int) key) );
 
     if( ' '<=key && key<='~' )
@@ -223,7 +221,6 @@ System.out.println("key typed coerced to int: " + ((int) key) );
 
   public void keyPressed( KeyEvent e )
   {
-    anyKeyPressed = true;
     int code = e.getKeyCode();
  
 System.out.println("key pressed: " + code );
